@@ -27,6 +27,10 @@ Import the package as follows to access the helpers.
 import string from '@poppinss/string'
 ```
 
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
 ### excerpt
 
 Generate an excerpt from a string value. If the input value contains HTML tags, we will remove them from the excerpt.
