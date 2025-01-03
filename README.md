@@ -424,6 +424,82 @@ Following are some of the conversion examples.
 | 'newcastle upon tyne'              | 'Newcastle upon Tyne'              |
 | 'newcastle \*upon\* tyne'          | 'Newcastle \*upon\* Tyne'          |
 
+### wordWrap
+
+Wrap words in a sentence after a given characters count. The sentence is always split after a word finishes, therefore some lines may exceed or may stay smaller than the provided length.
+
+| Option    | Description                                                                |
+| --------- | -------------------------------------------------------------------------- |
+| `indent`  | Characters to use for indenting text after the first line                  |
+| `width`   | Number of characters after which to split the line                         |
+| `newLine` | Specify the new line character to use for splitting lines. Default to `\n` |
+| `escape`  | Specify a function to escape contents of one line at a time                |
+
+```ts
+import string from '@poppinss/string'
+
+const sentence = `Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+
+It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
+
+It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.`
+
+const output = string.wordWrap(sentence, { width: 40 })
+
+/**
+Lorem Ipsum is simply dummy text of the
+printing and typesetting industry. Lorem
+Ipsum has been the industry's standard
+dummy text ever since the 1500s, when an
+unknown printer took a galley of type
+and scrambled it to make a type specimen
+book.
+
+It has survived not only five centuries,
+but also the leap into electronic
+typesetting, remaining essentially
+unchanged.
+
+It was popularised in the 1960s with the
+release of Letraset sheets containing
+Lorem Ipsum passages, and more recently
+with desktop publishing software like
+Aldus PageMaker including versions of
+Lorem Ipsum.
+*/
+```
+
+You can also indent lines with a given character. In the following example, we indent lines with 2 spaces.
+
+```ts
+const output = string.wordWrap(sentence, {
+  width: 40,
+  indent: '  ',
+})
+
+/**
+Lorem Ipsum is simply dummy text of the
+  printing and typesetting industry. Lorem
+  Ipsum has been the industry's standard
+  dummy text ever since the 1500s, when an
+  unknown printer took a galley of type
+  and scrambled it to make a type specimen
+  book.
+
+  It has survived not only five centuries,
+  but also the leap into electronic
+  typesetting, remaining essentially
+  unchanged.
+
+  It was popularised in the 1960s with the
+  release of Letraset sheets containing
+  Lorem Ipsum passages, and more recently
+  with desktop publishing software like
+  Aldus PageMaker including versions of
+  Lorem Ipsum.
+*/
+```
+
 ### random
 
 Generate a cryptographically secure random string of a given length. The output value is URL safe base64 encoded string.

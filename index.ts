@@ -15,6 +15,7 @@ import { excerpt } from './src/excerpt.js'
 import { ordinal } from './src/ordinal.js'
 import { truncate } from './src/truncate.js'
 import { sentence } from './src/sentence.js'
+import { wordWrap } from './src/word_wrap.js'
 import milliseconds from './src/milliseconds.js'
 import { interpolate } from './src/interpolate.js'
 import { plural, pluralize, singular, isPlural, isSingular } from './src/pluralize.js'
@@ -59,6 +60,7 @@ const string = {
   random,
   sentence,
   condenseWhitespace,
+  wordWrap,
   seconds,
   milliseconds,
   bytes,
