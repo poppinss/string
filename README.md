@@ -29,36 +29,37 @@ import string from '@poppinss/string'
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+
 **Table of Contents**
 
-  - [excerpt](#excerpt)
-  - [truncate](#truncate)
-  - [slug](#slug)
-  - [interpolate](#interpolate)
-  - [plural](#plural)
-  - [singular](#singular)
-  - [pluralize](#pluralize)
-  - [isPlural](#isplural)
-  - [isSingular](#issingular)
-  - [camelCase](#camelcase)
-  - [capitalCase](#capitalcase)
-  - [dashCase](#dashcase)
-  - [dotCase](#dotcase)
-  - [noCase](#nocase)
-  - [pascalCase](#pascalcase)
-  - [sentenceCase](#sentencecase)
-  - [snakeCase](#snakecase)
-  - [titleCase](#titlecase)
-  - [wordWrap](#wordwrap)
-  - [htmlEscape](#htmlescape)
-  - [random](#random)
-  - [toSentence](#tosentence)
-  - [condenseWhitespace](#condensewhitespace)
-  - [ordinal](#ordinal)
-  - [seconds.(parse/format)](#secondsparseformat)
-  - [milliseconds.(parse/format)](#millisecondsparseformat)
-  - [bytes.(parse/format)](#bytesparseformat)
-  - [String builder](#string-builder)
+- [excerpt](#excerpt)
+- [truncate](#truncate)
+- [slug](#slug)
+- [interpolate](#interpolate)
+- [plural](#plural)
+- [singular](#singular)
+- [pluralize](#pluralize)
+- [isPlural](#isplural)
+- [isSingular](#issingular)
+- [camelCase](#camelcase)
+- [capitalCase](#capitalcase)
+- [dashCase](#dashcase)
+- [dotCase](#dotcase)
+- [noCase](#nocase)
+- [pascalCase](#pascalcase)
+- [sentenceCase](#sentencecase)
+- [snakeCase](#snakecase)
+- [titleCase](#titlecase)
+- [wordWrap](#wordwrap)
+- [htmlEscape](#htmlescape)
+- [random](#random)
+- [toSentence](#tosentence)
+- [condenseWhitespace](#condensewhitespace)
+- [ordinal](#ordinal)
+- [seconds.(parse/format)](#secondsparseformat)
+- [milliseconds.(parse/format)](#millisecondsparseformat)
+- [bytes.(parse/format)](#bytesparseformat)
+- [String builder](#string-builder)
 - [Contributing](#contributing)
 - [Code of Conduct](#code-of-conduct)
 - [License](#license)
@@ -563,6 +564,59 @@ Following are some examples.
 | `htmlEscape('test="foo"')`           | `'test=&quot;foo&quot;'`             |
 | `htmlEscape('<ta\'&g">')`            | `'&lt;ta&#39;&amp;g&quot;&gt;'`      |
 | `htmlEscape('foo<<bar')`             | `'foo&lt;&lt;bar'`                   |
+
+### justify
+
+Justify text of multiple columns as per the define max width. Columns smaller than the provided max width will be padded with empty spaces or the provided `indent` char.
+
+```ts
+import string from '@poppinss/string'
+
+const output = string.justify(['help', 'serve', 'make:controller'], {
+  width: 20,
+})
+
+/**
+[
+  'help                ',
+  'serve               ',
+  'make:controller     ',
+]
+*/
+```
+
+By default the columns are left aligned. However, they can also be right aligned using the `align` option.
+
+```ts
+const output = string.justify(['help', 'serve', 'make:controller'], {
+  width: 20,
+  align: 'right',
+})
+
+/**
+[
+  '                help',
+  '               serve',
+  '     make:controller',
+]
+*/
+```
+
+If the columns contains ANSI escape sequences, then you must specify a custom `getLength` method to compute the column length without counting ANSI escape sequences.
+
+```ts
+import stringWidth from 'string-width'
+
+const output = string.justify(['help', 'serve', 'make:controller'], {
+  width: 20,
+  align: 'right',
+  /**
+   * The `string-width` package returns the length of the string
+   * without accounting for ANSI escape sequences
+   */
+  getLength: (chunk) => stringWidth(chunk),
+})
+```
 
 ### random
 

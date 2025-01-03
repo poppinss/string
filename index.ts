@@ -12,6 +12,7 @@ import seconds from './src/seconds.js'
 import { slug } from './src/slugify.js'
 import { random } from './src/random.js'
 import { excerpt } from './src/excerpt.js'
+import { justify } from './src/justify.js'
 import { ordinal } from './src/ordinal.js'
 import { truncate } from './src/truncate.js'
 import { sentence } from './src/sentence.js'
@@ -67,6 +68,7 @@ const string = {
   bytes,
   ordinal,
   htmlEscape,
+  justify,
 }
 
 export default string

@@ -39,6 +39,7 @@
     "@japa/file-system": "^2.3.1",
     "@japa/runner": "^3.1.4",
     "@japa/snapshot": "^2.0.7",
+    "@poppinss/colors": "^4.1.4",
     "@release-it/conventional-changelog": "^9.0.4",
     "@swc/core": "^1.10.4",
     "@types/node": "^22.10.4",
@@ -46,6 +47,7 @@
     "eslint": "^9.17.0",
     "prettier": "^3.4.2",
     "release-it": "^17.11.0",
+    "string-width": "^7.2.0",
     "ts-node-maintained": "^10.9.4",
     "tsup": "^8.3.5",
     "typescript": "^5.7.2"
