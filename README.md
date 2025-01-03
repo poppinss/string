@@ -29,35 +29,36 @@ import string from '@poppinss/string'
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+
 **Table of Contents**
 
-  - [excerpt](#excerpt)
-  - [truncate](#truncate)
-  - [slug](#slug)
-  - [interpolate](#interpolate)
-  - [plural](#plural)
-  - [singular](#singular)
-  - [pluralize](#pluralize)
-  - [isPlural](#isplural)
-  - [isSingular](#issingular)
-  - [camelCase](#camelcase)
-  - [capitalCase](#capitalcase)
-  - [dashCase](#dashcase)
-  - [dotCase](#dotcase)
-  - [noCase](#nocase)
-  - [pascalCase](#pascalcase)
-  - [sentenceCase](#sentencecase)
-  - [snakeCase](#snakecase)
-  - [titleCase](#titlecase)
-  - [wordWrap](#wordwrap)
-  - [random](#random)
-  - [toSentence](#tosentence)
-  - [condenseWhitespace](#condensewhitespace)
-  - [ordinal](#ordinal)
-  - [seconds.(parse/format)](#secondsparseformat)
-  - [milliseconds.(parse/format)](#millisecondsparseformat)
-  - [bytes.(parse/format)](#bytesparseformat)
-  - [String builder](#string-builder)
+- [excerpt](#excerpt)
+- [truncate](#truncate)
+- [slug](#slug)
+- [interpolate](#interpolate)
+- [plural](#plural)
+- [singular](#singular)
+- [pluralize](#pluralize)
+- [isPlural](#isplural)
+- [isSingular](#issingular)
+- [camelCase](#camelcase)
+- [capitalCase](#capitalcase)
+- [dashCase](#dashcase)
+- [dotCase](#dotcase)
+- [noCase](#nocase)
+- [pascalCase](#pascalcase)
+- [sentenceCase](#sentencecase)
+- [snakeCase](#snakecase)
+- [titleCase](#titlecase)
+- [wordWrap](#wordwrap)
+- [random](#random)
+- [toSentence](#tosentence)
+- [condenseWhitespace](#condensewhitespace)
+- [ordinal](#ordinal)
+- [seconds.(parse/format)](#secondsparseformat)
+- [milliseconds.(parse/format)](#millisecondsparseformat)
+- [bytes.(parse/format)](#bytesparseformat)
+- [String builder](#string-builder)
 - [Contributing](#contributing)
 - [Code of Conduct](#code-of-conduct)
 - [License](#license)
@@ -536,6 +537,32 @@ Lorem Ipsum is simply dummy text of the
   Lorem Ipsum.
 */
 ```
+
+### htmlEscape
+
+Escape special characters in the given string of text, such that it can be interpolated in HTML content. This function will escape the following characters: `"`, `'`, `&`, `<`, and `>`.
+
+```ts
+import string from '@poppinss/string'
+
+string.htmlEscape('&foo <> bar "fizz" l\'a')
+// Output: &amp;foo &lt;&gt; bar &quot;fizz&quot; l&#39;a
+```
+
+Following are some examples.
+
+| Input                                | Output                               |
+| ------------------------------------ | ------------------------------------ |
+| `htmlEscape('&<>"\'')`               | `'&amp;&lt;&gt;&quot;&#39;'`         |
+| `htmlEscape('🦄 & 🐐')`              | `'🦄 &amp; 🐐'`                      |
+| `htmlEscape('Hello <em>World</em>')` | `'Hello &lt;em&gt;World&lt;/em&gt;'` |
+| `htmlEscape('no escape')`            | `'no escape'`                        |
+| `htmlEscape('foo&bar')`              | `'foo&amp;bar'`                      |
+| `htmlEscape('<tag>')`                | `'&lt;tag&gt;'`                      |
+| `htmlEscape("test=\'foo\'")`         | `'test=&#39;foo&#39;'`               |
+| `htmlEscape('test="foo"')`           | `'test=&quot;foo&quot;'`             |
+| `htmlEscape('<ta\'&g">')`            | `'&lt;ta&#39;&amp;g&quot;&gt;'`      |
+| `htmlEscape('foo<<bar')`             | `'foo&lt;&lt;bar'`                   |
 
 ### random
 
