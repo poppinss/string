@@ -119,7 +119,17 @@ export default class StringBuilder {
   /**
    * Removes a given suffix from the string
    */
-  removeSuffix(suffix: string): this {
+  removeSuffix(suffix: string, options?: { similarWords: string[] }): this {
+    /**
+     * Do not substitue when the value ends with one of the similar words
+     */
+    if (
+      options?.similarWords &&
+      options.similarWords.some((word) => new RegExp(`[-_]?${word}$`, 'i').test(this.#value))
+    ) {
+      return this
+    }
+
     this.#value = this.#value.replace(new RegExp(`[-_]?${suffix}$`, 'i'), '')
     return this
   }
@@ -127,8 +137,8 @@ export default class StringBuilder {
   /**
    * Adds suffix to the string
    */
-  suffix(suffix: string): this {
-    this.removeSuffix(suffix)
+  suffix(suffix: string, options?: { similarWords: string[] }): this {
+    this.removeSuffix(suffix, options)
     this.#value = `${this.#value}${suffix}`
     return this
   }
@@ -136,7 +146,17 @@ export default class StringBuilder {
   /**
    * Removes a given prefix from the string
    */
-  removePrefix(prefix: string): this {
+  removePrefix(prefix: string, options?: { similarWords: string[] }): this {
+    /**
+     * Do not substitue when the value starts with one of the similar words
+     */
+    if (
+      options?.similarWords &&
+      options.similarWords.some((word) => new RegExp(`^${word}[-_]?`, 'i').test(this.#value))
+    ) {
+      return this
+    }
+
     this.#value = this.#value.replace(new RegExp(`^${prefix}[-_]?`, 'i'), '')
     return this
   }

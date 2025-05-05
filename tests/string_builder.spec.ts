@@ -50,6 +50,14 @@ test.group('String builder', () => {
       new StringBuilder('usercontroller').suffix('Controller').snakeCase().toString(),
       'user_controller'
     )
+
+    assert.equal(
+      new StringBuilder('verify_email')
+        .suffix('Mail', { similarWords: ['email', 'emailer'] })
+        .snakeCase()
+        .toString(),
+      'verify_email_mail'
+    )
   })
 
   test('convert to plural case', ({ assert }) => {
@@ -125,6 +133,15 @@ test.group('String builder', () => {
     assert.equal(
       new StringBuilder('makeuser').removePrefix('make').prefix('make_').snakeCase().toString(),
       'make_user'
+    )
+
+    assert.equal(
+      new StringBuilder('makerservice')
+        .removePrefix('make', { similarWords: ['maker'] })
+        .prefix('make_')
+        .snakeCase()
+        .toString(),
+      'make_makerservice'
     )
   })
 
