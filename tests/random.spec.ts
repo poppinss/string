@@ -23,4 +23,17 @@ test.group('Random', () => {
     assert.notInclude(randomValue, '/')
     assert.notInclude(randomValue, '=')
   })
+
+  test('use custom implementation', ({ assert }) => {
+    string.random.use((size) => {
+      return 'a'.repeat(size)
+    })
+
+    assert.equal(string.random(2), 'aa')
+    assert.equal(string.random(10), 'aaaaaaaaaa')
+
+    string.random.restore()
+    assert.notEqual(string.random(2), 'aa')
+    assert.notEqual(string.random(10), 'aaaaaaaaaa')
+  })
 })
