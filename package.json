@@ -10,6 +10,7 @@
   ],
   "exports": {
     ".": "./build/index.js",
+    "./types": "./build/src/types.js",
     "./builder": "./build/string_builder.js"
   },
   "scripts": {
@@ -80,6 +81,7 @@
   "tsup": {
     "entry": [
       "index.ts",
+      "src/types.ts",
       "string_builder.ts"
     ],
     "outDir": "./build",
