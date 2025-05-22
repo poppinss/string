@@ -985,10 +985,17 @@ The string builder offers a fluent API for applying a set of transforms on a str
 
 ```ts
 import StringBuilder from '@poppinss/string/builder'
-const builder = new StringBuilder('hello world')
+const builder = new StringBuilder('userController')
 
-const value = builder.snakeCase().suffix('_controller').toString()
-assert(value === 'hello_world_controller')
+const value = builder
+  .removeSuffix('controller') // user
+  .plural() // users
+  .snakeCase() // users
+  .suffix('_controller') // users_controller
+  .ext('ts') // users_controller.ts
+  .toString()
+
+assert(value === 'users_controller.ts')
 ```
 
 ## Contributing
