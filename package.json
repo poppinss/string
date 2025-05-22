@@ -1,7 +1,7 @@
 {
   "name": "@poppinss/string",
   "description": "A collection of helpers to perform operations on/related to a string value",
-  "version": "1.4.0",
+  "version": "1.5.0",
   "type": "module",
   "files": [
     "build",
