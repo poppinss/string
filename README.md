@@ -29,54 +29,55 @@ import string from '@poppinss/string'
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+
 **Table of Contents**
 
-  - [excerpt](#excerpt)
-    - [OPTIONS](#options)
-  - [truncate](#truncate)
-    - [OPTIONS](#options-1)
-  - [slug](#slug)
-  - [interpolate](#interpolate)
-  - [plural](#plural)
-  - [singular](#singular)
-  - [pluralize](#pluralize)
-  - [isPlural](#isplural)
-  - [isSingular](#issingular)
-  - [camelCase](#camelcase)
-    - [EXAMPLES](#examples)
-  - [capitalCase](#capitalcase)
-    - [EXAMPLES](#examples-1)
-  - [dashCase](#dashcase)
-    - [EXAMPLES](#examples-2)
-  - [dotCase](#dotcase)
-    - [EXAMPLES](#examples-3)
-  - [noCase](#nocase)
-    - [EXAMPLES](#examples-4)
-  - [pascalCase](#pascalcase)
-    - [EXAMPLES](#examples-5)
-  - [sentenceCase](#sentencecase)
-    - [EXAMPLES](#examples-6)
-  - [snakeCase](#snakecase)
-    - [EXAMPLES](#examples-7)
-  - [titleCase](#titlecase)
-    - [EXAMPLES](#examples-8)
-  - [wordWrap](#wordwrap)
-    - [OPTIONS](#options-2)
-  - [htmlEscape](#htmlescape)
-    - [EXAMPLES](#examples-9)
-  - [justify](#justify)
-  - [random](#random)
-  - [toSentence](#tosentence)
-  - [condenseWhitespace](#condensewhitespace)
-  - [ordinal](#ordinal)
-  - [seconds.parse](#secondsparse)
-  - [seconds.format](#secondsformat)
-  - [milliseconds.parse](#millisecondsparse)
-  - [milliseconds.format](#millisecondsformat)
-  - [bytes.parse](#bytesparse)
-  - [bytes.format](#bytesformat)
-    - [OPTIONS](#options-3)
-  - [String builder](#string-builder)
+- [excerpt](#excerpt)
+  - [OPTIONS](#options)
+- [truncate](#truncate)
+  - [OPTIONS](#options-1)
+- [slug](#slug)
+- [interpolate](#interpolate)
+- [plural](#plural)
+- [singular](#singular)
+- [pluralize](#pluralize)
+- [isPlural](#isplural)
+- [isSingular](#issingular)
+- [camelCase](#camelcase)
+  - [EXAMPLES](#examples)
+- [capitalCase](#capitalcase)
+  - [EXAMPLES](#examples-1)
+- [dashCase](#dashcase)
+  - [EXAMPLES](#examples-2)
+- [dotCase](#dotcase)
+  - [EXAMPLES](#examples-3)
+- [noCase](#nocase)
+  - [EXAMPLES](#examples-4)
+- [pascalCase](#pascalcase)
+  - [EXAMPLES](#examples-5)
+- [sentenceCase](#sentencecase)
+  - [EXAMPLES](#examples-6)
+- [snakeCase](#snakecase)
+  - [EXAMPLES](#examples-7)
+- [titleCase](#titlecase)
+  - [EXAMPLES](#examples-8)
+- [wordWrap](#wordwrap)
+  - [OPTIONS](#options-2)
+- [htmlEscape](#htmlescape)
+  - [EXAMPLES](#examples-9)
+- [justify](#justify)
+- [random](#random)
+- [toSentence](#tosentence)
+- [condenseWhitespace](#condensewhitespace)
+- [ordinal](#ordinal)
+- [seconds.parse](#secondsparse)
+- [seconds.format](#secondsformat)
+- [milliseconds.parse](#millisecondsparse)
+- [milliseconds.format](#millisecondsformat)
+- [bytes.parse](#bytesparse)
+- [bytes.format](#bytesformat)
+  - [OPTIONS](#options-3)
+- [String builder](#string-builder)
 - [Contributing](#contributing)
 - [Code of Conduct](#code-of-conduct)
 - [License](#license)
@@ -723,6 +724,43 @@ import string from '@poppinss/string'
 
 string.random(32)
 // 8mejfWWbXbry8Rh7u8MW3o-6dxd80Thk
+```
+
+You can replace the random generator using the `random.use` method and restore the original implementation using the `random.restore` method.
+
+```ts
+// Custom generator
+string.random.use((size) => {
+  return 'a'.repeat(size)
+})
+
+string.random(10) // aaaaaaaaaa
+
+// Restore original implementation
+string.random.restore()
+```
+
+### uuid
+
+Generate a UUID v4 value. The `uuid` method uses the [crypto.randomUUID](https://nodejs.org/api/crypto.html#cryptorandomuuidoptions) under the hood. However, it does allow you to replace the original implementation with a custom method.
+
+```ts
+import string from '@poppinss/string'
+
+string.uuid()
+// 1a7989bf-a176-42fb-97ef-1368f2466027
+```
+
+```ts
+// Custom generator
+string.uuid.use(() => {
+  return 'xxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx'
+})
+
+string.uuid() // 'xxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx'
+
+// Restore original implementation
+string.uuid.restore()
 ```
 
 ### toSentence
