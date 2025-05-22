@@ -8,13 +8,14 @@
  */
 
 import { parse, format } from '@lukeed/ms'
+import type { PrettyTime } from './types.js'
 
 export default {
   /**
    * Formats milliseconds to pretty string output
    */
-  format(milliseconds: number, long?: boolean): string {
-    return format(milliseconds, long)
+  format(milliseconds: number, long?: boolean): PrettyTime {
+    return format(milliseconds, long) as PrettyTime
   },
 
   /**

@@ -7,7 +7,8 @@
  * file that was distributed with this source code.
  */
 
-import bytes, { BytesOptions } from 'bytes'
+import bytes, { type BytesOptions } from 'bytes'
+import type { PrettyBytes } from './types.js'
 
 export default {
   /**
@@ -19,8 +20,8 @@ export default {
     - `unit`: The unit in which the result will be returned. It could be `B/KB/MB/GB/TB`. The default behavior is to auto-detect based on the input.
     - `unitSeparator`: The separator between the value and the `unit`. `default=''`.
    */
-  format(valueInBytes: number, options?: BytesOptions): string | null {
-    return bytes.format(valueInBytes, options)
+  format(valueInBytes: number, options?: BytesOptions): PrettyBytes | null {
+    return bytes.format(valueInBytes, options) as PrettyBytes | null
   },
 
   /**
