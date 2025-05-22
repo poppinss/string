@@ -8,6 +8,7 @@
  */
 
 import bytes from './src/bytes.js'
+import { uuid } from './src/uuid.js'
 import seconds from './src/seconds.js'
 import { slug } from './src/slugify.js'
 import { random } from './src/random.js'
@@ -69,6 +70,7 @@ const string = {
   ordinal,
   htmlEscape,
   justify,
+  uuid,
 }
 
 export default string
