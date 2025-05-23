@@ -21,6 +21,7 @@ import { wordWrap } from './src/word_wrap.js'
 import milliseconds from './src/milliseconds.js'
 import { htmlEscape } from './src/html_escape.js'
 import { interpolate } from './src/interpolate.js'
+import { toUnixSlash } from './src/to_unix_slash.js'
 import { plural, pluralize, singular, isPlural, isSingular } from './src/pluralize.js'
 import {
   noCase,
@@ -71,6 +72,7 @@ const string = {
   htmlEscape,
   justify,
   uuid,
+  toUnixSlash,
 }
 
 export default string

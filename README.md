@@ -221,6 +221,20 @@ string.interpolate('hello \\{{ users.0 }}', {})
 // hello {{ users.0 }}
 ```
 
+### slash
+
+Convert OS-specific file paths to Unix file paths. Credits [https://github.com/sindresorhus/slash](https://github.com/sindresorhus/slash)
+
+```ts
+import string from '@poppinss/string'
+
+const value = path.join('foo', 'bar')
+// Unix    => foo/bar
+// Windows => foo\\bar
+
+string.slash(value) // foo/bar
+```
+
 ### plural
 
 Convert a word to its plural form. The method is exported directly from the [pluralize](https://www.npmjs.com/package/pluralize) package.
