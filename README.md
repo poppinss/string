@@ -37,6 +37,7 @@ import string from '@poppinss/string'
     - [OPTIONS](#options-1)
   - [slug](#slug)
   - [interpolate](#interpolate)
+  - [slash](#slash)
   - [plural](#plural)
   - [singular](#singular)
   - [pluralize](#pluralize)
