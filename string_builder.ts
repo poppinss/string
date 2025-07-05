@@ -187,6 +187,14 @@ export default class StringBuilder {
     return this
   }
 
+  /**
+   * Convert slashes to unix slash
+   */
+  toUnixSlash(): this {
+    this.#value = string.toUnixSlash(this.#value)
+    return this
+  }
+
   toString() {
     return this.#value
   }
