@@ -7,7 +7,7 @@
  * file that was distributed with this source code.
  */
 
-import { randomUUID, RandomUUIDOptions, UUID } from 'node:crypto'
+import { randomUUID, type RandomUUIDOptions, type UUID } from 'node:crypto'
 
 let uuidGenerator: typeof randomUUID = randomUUID
 
