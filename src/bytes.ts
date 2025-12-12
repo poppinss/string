@@ -8,7 +8,7 @@
  */
 
 import bytes from 'bytes'
-import type { BytesOptions, PrettyBytes } from './types.js'
+import type { BytesOptions, PrettyBytes } from './types.ts'
 
 export default {
   /**

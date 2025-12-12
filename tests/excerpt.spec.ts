@@ -8,7 +8,7 @@
  */
 
 import { test } from '@japa/runner'
-import string from '../index.js'
+import string from '../index.ts'
 
 test.group('excerpt', () => {
   test('generate excerpt by stripping html', ({ assert }) => {

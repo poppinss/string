@@ -7,22 +7,22 @@
  * file that was distributed with this source code.
  */
 
-import bytes from './src/bytes.js'
-import { uuid } from './src/uuid.js'
-import seconds from './src/seconds.js'
-import { slug } from './src/slugify.js'
-import { random } from './src/random.js'
-import { excerpt } from './src/excerpt.js'
-import { justify } from './src/justify.js'
-import { ordinal } from './src/ordinal.js'
-import { truncate } from './src/truncate.js'
-import { sentence } from './src/sentence.js'
-import { wordWrap } from './src/word_wrap.js'
-import milliseconds from './src/milliseconds.js'
-import { htmlEscape } from './src/html_escape.js'
-import { interpolate } from './src/interpolate.js'
-import { toUnixSlash } from './src/to_unix_slash.js'
-import { plural, pluralize, singular, isPlural, isSingular } from './src/pluralize.js'
+import bytes from './src/bytes.ts'
+import { uuid } from './src/uuid.ts'
+import seconds from './src/seconds.ts'
+import { slug } from './src/slugify.ts'
+import { random } from './src/random.ts'
+import { excerpt } from './src/excerpt.ts'
+import { justify } from './src/justify.ts'
+import { ordinal } from './src/ordinal.ts'
+import { truncate } from './src/truncate.ts'
+import { sentence } from './src/sentence.ts'
+import { wordWrap } from './src/word_wrap.ts'
+import milliseconds from './src/milliseconds.ts'
+import { htmlEscape } from './src/html_escape.ts'
+import { interpolate } from './src/interpolate.ts'
+import { toUnixSlash } from './src/to_unix_slash.ts'
+import { plural, pluralize, singular, isPlural, isSingular } from './src/pluralize.ts'
 import {
   noCase,
   dotCase,
@@ -33,7 +33,7 @@ import {
   pascalCase,
   capitalCase,
   sentenceCase,
-} from './src/change_case.js'
+} from './src/change_case.ts'
 
 /**
  * Condense multiple whitespaces from a string

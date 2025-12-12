@@ -8,7 +8,7 @@
  */
 
 import { parse, format } from '@lukeed/ms'
-import type { PrettyTime } from './types.js'
+import type { PrettyTime } from './types.ts'
 
 export default {
   /**

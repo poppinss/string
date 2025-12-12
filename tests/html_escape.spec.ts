@@ -8,7 +8,7 @@
  */
 
 import { test } from '@japa/runner'
-import { htmlEscape } from '../src/html_escape.js'
+import { htmlEscape } from '../src/html_escape.ts'
 
 test('htmlEscape', ({ assert }) => {
   assert.equal(htmlEscape('&<>"\''), '&amp;&lt;&gt;&quot;&#39;')

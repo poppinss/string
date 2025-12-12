@@ -8,7 +8,7 @@
  */
 
 import { test } from '@japa/runner'
-import string from '../index.js'
+import string from '../index.ts'
 
 test.group('Ordinal', () => {
   test('ordinalize a value', ({ assert }) => {

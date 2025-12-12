@@ -8,7 +8,7 @@
  */
 
 import { test } from '@japa/runner'
-import { toUnixSlash } from '../src/to_unix_slash.js'
+import { toUnixSlash } from '../src/to_unix_slash.ts'
 
 test.group('Slash', () => {
   test('convert backwards-slash paths to forward slash paths', ({ assert }) => {

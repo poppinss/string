@@ -8,7 +8,7 @@
  */
 
 import { test } from '@japa/runner'
-import string from '../index.js'
+import string from '../index.ts'
 
 test.group('To sentence', () => {
   test('make sentence from multiple words', ({ assert }) => {

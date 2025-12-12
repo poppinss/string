@@ -8,7 +8,7 @@
  */
 
 import { extname } from 'node:path'
-import string from './index.js'
+import string from './index.ts'
 
 /**
  * StringBuilder exposes a fluent API to transform a string value

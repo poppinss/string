@@ -10,7 +10,7 @@
 import { test } from '@japa/runner'
 import stringWidth from 'string-width'
 import useColors from '@poppinss/colors'
-import { justify } from '../src/justify.js'
+import { justify } from '../src/justify.ts'
 
 const colors = useColors.ansi()
 
