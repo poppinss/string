@@ -7,8 +7,8 @@
  * file that was distributed with this source code.
  */
 
-import bytes, { type BytesOptions } from 'bytes'
-import type { PrettyBytes } from './types.js'
+import bytes from 'bytes'
+import type { BytesOptions, PrettyBytes } from './types.js'
 
 export default {
   /**

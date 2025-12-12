@@ -48,8 +48,16 @@ export type PrettyTime =
 
 type BytesUnit = 'B' | 'KB' | 'MB' | 'GB' | 'TB' | 'PB'
 
-type BytesUnitAnyCase = BytesUnit | Uppercase<BytesUnit> | Lowercase<BytesUnit>
+type BytesUnitAnyCase = BytesUnit | Lowercase<BytesUnit>
 export type PrettyBytes =
   | `${number}`
   | `${number}${BytesUnitAnyCase}`
   | `${number} ${BytesUnitAnyCase}`
+
+export interface BytesOptions {
+  decimalPlaces?: number | undefined
+  fixedDecimals?: boolean | undefined
+  thousandsSeparator?: string | undefined
+  unit?: BytesUnitAnyCase | undefined
+  unitSeparator?: string | undefined
+}
