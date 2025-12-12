@@ -49,6 +49,7 @@
     "prettier": "^3.7.4",
     "release-it": "^19.1.0",
     "string-width": "^8.1.0",
+    "truncatise": "^0.0.8",
     "tsdown": "^0.17.3",
     "typescript": "^5.9.3"
   },
@@ -56,8 +57,7 @@
     "@types/pluralize": "^0.0.33",
     "case-anything": "^3.1.2",
     "pluralize": "^8.0.0",
-    "slugify": "^1.6.6",
-    "truncatise": "^0.0.8"
+    "slugify": "^1.6.6"
   },
   "homepage": "https://github.com/poppinss/string#readme",
   "repository": {
