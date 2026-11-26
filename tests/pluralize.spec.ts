@@ -56,6 +56,77 @@ test.group('Pluralize', () => {
     assert.equal(string.singular('SearchBiases'), 'SearchBias')
   })
 
+  test('fix singular form of nouns ending in ie', ({ assert }) => {
+    const words = [
+      'auntie',
+      'beanie',
+      'birdie',
+      'boogie',
+      'bookie',
+      'brownie',
+      'budgie',
+      'calorie',
+      'cookie',
+      'coterie',
+      'freebie',
+      'hoodie',
+      'hottie',
+      'junkie',
+      'magpie',
+      'menagerie',
+      'newbie',
+      'nightie',
+      'oldie',
+      'pixie',
+      'prairie',
+      'quickie',
+      'reverie',
+      'rookie',
+      'roomie',
+      'selfie',
+      'smoothie',
+      'sortie',
+      'sweetie',
+      'techie',
+      'townie',
+      'veggie',
+      'yuppie',
+      'movie',
+      'zombie',
+    ]
+
+    words.forEach((single) => {
+      assert.equal(string.plural(single), `${single}s`)
+      assert.equal(string.singular(`${single}s`), single)
+    })
+  })
+
+  test('fix singular form of compound nouns ending in ie', ({ assert }) => {
+    assert.equal(string.singular('Cookies'), 'Cookie')
+    assert.equal(string.singular('user_cookies'), 'user_cookie')
+    assert.equal(string.singular('UserCookies'), 'UserCookie')
+    assert.equal(string.singular('kilocalories'), 'kilocalorie')
+  })
+
+  test('continue singularizing nouns ending in a consonant and y', ({ assert }) => {
+    const inflections = [
+      ['city', 'cities'],
+      ['party', 'parties'],
+      ['family', 'families'],
+      ['category', 'categories'],
+      ['company', 'companies'],
+      ['puppy', 'puppies'],
+      ['copy', 'copies'],
+      ['story', 'stories'],
+      ['chippy', 'chippies'],
+    ]
+
+    inflections.forEach(([single, many]) => {
+      assert.equal(string.plural(single), many)
+      assert.equal(string.singular(many), single)
+    })
+  })
+
   test('continue supporting pluralize package inflections', ({ assert }) => {
     const inflections = [
       ['box', 'boxes'],
