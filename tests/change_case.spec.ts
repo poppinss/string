@@ -170,6 +170,10 @@ test.group('Change case', () => {
       },
       { input: 'newcastle upon tyne', output: 'Newcastle upon Tyne' },
       { input: 'newcastle *upon* tyne', output: 'Newcastle *upon* Tyne' },
+      { input: 'łódź city', output: 'Łódź City' },
+      { input: 'ştefan cel mare', output: 'Ştefan Cel Mare' },
+      { input: 'ōsaka trip', output: 'Ōsaka Trip' },
+      { input: 'αθήνα city', output: 'Αθήνα City' },
     ])
     .run(({ assert }, { input, output }) => {
       assert.equal(string.titleCase(input), output)
@@ -185,6 +189,10 @@ test.group('Change case', () => {
       { input: 'TestV2', output: 'Test v2' },
       { input: 'version 1.2.10', output: 'Version 1 2 10' },
       { input: 'version 1.21.0', output: 'Version 1 21 0' },
+      { input: 'über alles', output: 'Über alles' },
+      { input: 'bon état', output: 'Bon état' },
+      { input: 'hello wörld', output: 'Hello wörld' },
+      { input: 'привет мир', output: 'Привет мир' },
     ])
     .run(({ assert }, { input, output }) => {
       assert.equal(string.sentenceCase(input), output)
@@ -279,6 +287,9 @@ test.group('Change case', () => {
       // https://github.com/blakeembrey/change-case/issues/21
       { input: 'amazon s3 data', output: 'amazon s3 data' },
       { input: 'foo_13_bar', output: 'foo 13 bar' },
+
+      // Letters outside ASCII.
+      { input: 'привет мир', output: 'привет мир' },
     ])
     .run(({ assert }, { input, output }) => {
       assert.equal(string.noCase(input), output)

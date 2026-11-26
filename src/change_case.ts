@@ -10,17 +10,17 @@
 import * as changeCase from 'case-anything'
 
 // Support camel case ("camelCase" -> "camel Case" and "CAMELCase" -> "CAMEL Case").
-const NO_CASE_SPLIT_REGEXP = [/([a-z0-9])([A-Z])/g, /([A-Z])([A-Z][a-z])/g]
+const NO_CASE_SPLIT_REGEXP = [/([\p{Ll}\d])(\p{Lu})/gu, /(\p{Lu})([\p{Lu}][\p{Ll}])/gu]
 
 // Remove all non-word characters.
-const NO_CASE_STRIP_REGEXP = /[^A-Z0-9]+/gi
+const NO_CASE_STRIP_REGEXP = /[^\p{L}\d]+/giu
 
 const SMALL_WORDS =
   /\b(?:an?d?|a[st]|because|but|by|en|for|i[fn]|neither|nor|o[fnr]|only|over|per|so|some|tha[tn]|the|to|up|upon|vs?\.?|versus|via|when|with|without|yet)\b/i
 const TOKENS = /[^\s:–—-]+|./g
 const WHITESPACE = /\s/
 const IS_MANUAL_CASE = /.(?=[A-Z]|\..)/
-const ALPHANUMERIC_PATTERN = /[A-Za-z0-9\u00C0-\u00FF]/
+const ALPHANUMERIC_PATTERN = /[\p{L}\p{N}]/u
 
 /**
  * The method is a copy/paste from the "title-case" package. They have
