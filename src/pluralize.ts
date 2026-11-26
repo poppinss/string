@@ -29,7 +29,50 @@ const suffixInflections = [
   ['veto', 'vetoes'],
 ] as const
 
-suffixInflections.forEach(([singular, plural]) => {
+/**
+ * Nouns ending in "ie". Pluralize singularizes their plural form as if
+ * the noun ends in "y". For example: "cookies" becomes "cooky", in the
+ * same way that "cities" becomes "city".
+ */
+const ieSuffixWords = [
+  'auntie',
+  'beanie',
+  'birdie',
+  'boogie',
+  'bookie',
+  'brownie',
+  'budgie',
+  'calorie',
+  'cookie',
+  'coterie',
+  'freebie',
+  'hoodie',
+  'hottie',
+  'junkie',
+  'magpie',
+  'menagerie',
+  'newbie',
+  'nightie',
+  'oldie',
+  'pixie',
+  'prairie',
+  'quickie',
+  'reverie',
+  'rookie',
+  'roomie',
+  'selfie',
+  'smoothie',
+  'sortie',
+  'sweetie',
+  'techie',
+  'townie',
+  'veggie',
+  'yuppie',
+] as const
+
+const ieSuffixInflections = ieSuffixWords.map((word) => [word, `${word}s`] as const)
+
+;[...suffixInflections, ...ieSuffixInflections].forEach(([singular, plural]) => {
   const suffix = plural.slice(singular.length)
   const escapedSingular = escapeRegExp(singular)
   const escapedSuffix = escapeRegExp(suffix)
