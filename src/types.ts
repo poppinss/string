@@ -42,17 +42,13 @@ type TimeUnit =
 
 type TimeUnitAnyCase = TimeUnit | Uppercase<TimeUnit> | Lowercase<TimeUnit>
 export type PrettyTime =
-  | `${number}`
-  | `${number}${TimeUnitAnyCase}`
-  | `${number} ${TimeUnitAnyCase}`
+  `${number}` | `${number}${TimeUnitAnyCase}` | `${number} ${TimeUnitAnyCase}`
 
 type BytesUnit = 'B' | 'KB' | 'MB' | 'GB' | 'TB' | 'PB'
 
 type BytesUnitAnyCase = BytesUnit | Lowercase<BytesUnit>
 export type PrettyBytes =
-  | `${number}`
-  | `${number}${BytesUnitAnyCase}`
-  | `${number} ${BytesUnitAnyCase}`
+  `${number}` | `${number}${BytesUnitAnyCase}` | `${number} ${BytesUnitAnyCase}`
 
 export interface BytesOptions {
   decimalPlaces?: number | undefined
